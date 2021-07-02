@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/HritikRaj007/Social_Network#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.6",
     "dotenv": "^10.0.0",
@@ -26,6 +27,7 @@
     "gravatar": "^1.8.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.0",
+    "normalize-url": "^4.5.1",
     "request": "^2.88.2"
   },
   "devDependencies": {
