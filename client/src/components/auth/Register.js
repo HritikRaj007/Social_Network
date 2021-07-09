@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect,useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
@@ -15,6 +15,10 @@ const Register = ({setAlert,register}) => {
   });
 
   const { name, email, password, password2 } = formData;
+
+  useEffect(() => {
+    console.log("hi")
+  },[]);
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
