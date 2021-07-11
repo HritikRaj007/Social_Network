@@ -7,6 +7,7 @@ import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Login from './components/auth/Login';
+import ProfileForm from './components/profile-forms/ProfileForm';
 import './App.css';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
@@ -38,6 +39,12 @@ function App() {
           <Route exact path='/register' component={Register} />
           <Route exact path='/login' component={Login} />
           <PrivateRoute exact path='/dashboard' component={Dashboard} />
+          <PrivateRoute
+                exact
+                path='/create-profile'
+                component={ProfileForm}
+          />
+          <PrivateRoute exact path="/edit-profile" component={ProfileForm} />
         </Switch>
       </section>
     </Fragment>
