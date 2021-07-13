@@ -1,4 +1,4 @@
-import { CLEAR_PROFILE, GET_PROFILE, GET_PROFILES, GET_REPOS, NO_REPOS, PROFILE_ERROR, UPDATE_PROFILE } from '../actions/types';
+import { CLEAR_PROFILE, GET_PROFILE, GET_PROFILES, GET_REPOS, NO_REPOS, PROFILE_ERROR, RESET_LOADING, UPDATE_PROFILE } from '../actions/types';
 
 const initialState = {
   profile: null,
@@ -29,6 +29,7 @@ function profileReducer(state = initialState, action) {
       return {
         ...state,
         error: payload,
+        profile:null,
         loading: false
       };
     case CLEAR_PROFILE:
@@ -50,6 +51,11 @@ function profileReducer(state = initialState, action) {
           ...state,
           repos: []
         };
+    case RESET_LOADING:
+      return {
+        ...state,
+        loading:true
+      }
     default:
       return state;
   }

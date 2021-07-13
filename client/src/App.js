@@ -18,6 +18,9 @@ import setAuthToken from './utils/setAuthToken';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
+import Profiles from './components/profiles/Profiles';
+import { CLEAR_PROFILE, LOGOUT } from './actions/types';
+import Profile from './components/profile/Profile';
 
 
 function App() {
@@ -27,6 +30,14 @@ function App() {
       setAuthToken(localStorage.token);
     }
     store.dispatch(loadUser());
+
+    // log user out from all tabs if they log out in one tab
+    window.addEventListener('storage', () => {
+      if (!localStorage.token){ 
+        store.dispatch({ type: LOGOUT });
+        store.dispatch({ type: CLEAR_PROFILE });
+      }  
+    });
   }, []);
 //  console.log("My name is doraemon")
   return (
@@ -40,6 +51,8 @@ function App() {
         <Switch>
           <Route exact path='/register' component={Register} />
           <Route exact path='/login' component={Login} />
+          <Route exact path='/profiles' component={Profiles} />
+          <Route exact path='/profile/:id' component={Profile} />
           <PrivateRoute exact path='/dashboard' component={Dashboard} />
           <PrivateRoute
                 exact

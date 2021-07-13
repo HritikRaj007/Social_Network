@@ -20,7 +20,6 @@ function authReducer(state = initialState, action) {
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
-      localStorage.setItem('token', payload.token);
       return {
         ...state,
         ...payload,
@@ -32,7 +31,6 @@ function authReducer(state = initialState, action) {
     case AUTH_ERROR:
     case LOGOUT:
     case ACCOUNT_DELETED:
-      localStorage.removeItem('token');
       return {
         ...state,
         token: null,
